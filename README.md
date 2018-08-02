@@ -1,2 +1,2 @@
-# concatenate-the-array
-Discussed in code chefs
+# C programming Examples
+- Concatenation of arrays to find the smallest number
