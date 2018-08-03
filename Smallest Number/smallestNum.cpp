@@ -1,48 +1,30 @@
-#include <iostream.h>
-#include <conio.h>
-void main()
+#include <iostream>
+using namespace std;
+int main()
 {
-	int i, j, a[10], n = 10, temp, c = 0, b[10];
-	clrscr();
-	cout << "Enter a array:"; //Input
-	for (i = 0; i < n; i++)
-		cin >> a[i];
-	for (i = 0; i < n; i++) //bubble sort
-		for (j = 0; j < n - i - 1; j++)
-			if (a[j] > a[j + 1])
-			{
-				temp = a[j];
-				a[j] = a[j + 1];
-				a[j + 1] = temp;
-			}
-	for (i = 0; i < n; i++) //Counting single digit number
-		if (0 == a[i] / 10)
-			c++;
-	j = 0;
-	for (i = c; i < n; i++) //pushing elements to array only two digit
+	int size = 10;								 // Size
+	int a[10] = {9, 8, 4, 5, 7, 1, 2, 6, 10, 0}; // Array
+	int i, j, temp;								 // Counter Variables and temporary storage
+	int smallest = a[0], pos;					 //Loop essental information
+
+	// First loop
+	for (i = 1; i < 10; i++)
 	{
-		b[j] = a[i];
-		j++;
-	}
-	for (i = 0; i < n; i++)
-		cout << "\n"
-			 << b[i];
-	for (i = 0; i < c; i++) //Not working
-		for (j = 0; j < n; j++)
+		// Second loop
+		for (j = i; j < 10; j++)
 		{
-			if (b[j] / 10 < a[i])
+			// Here we check if the smallest number is lesser than the number pointer
+			// If we get the smallest number, we swap it
+			if (a[j] < smallest)
 			{
-				for (int x = n - 1; x == j; x--)
-					b[x] = b[x - 1];
-				break;
+				smallest = a[j];
+				pos = j;
 			}
-		} //till here
-	for (i = 0; i < n; i++)
-		cout << "\t" << a[i]; //output
-	cout << "\n";
-	for (i = 0; i < n; i++)
-		cout << b[i];
-	cout << "\n"
-		 << c;
-	getch();
+		}
+		// Here goes the swapping algorithm
+		// Write it yourself
+		cout << "\n"
+			 << smallest << " - " << pos << "\n";
+	}
+	return 0;
 }
